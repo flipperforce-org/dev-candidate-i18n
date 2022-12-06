@@ -6,6 +6,9 @@ const lang = {
     edit: 'Edit',
     buttons: {
       save: 'Save',
+      actions: {
+        delete: 'Delete',
+      },
     },
   },
 };
@@ -29,6 +32,9 @@ describe('readObjectFromDotNotation', () => {
       expect(readObjectFromDotNotation('global.buttons.save', lang)).toBe(
         lang.global.buttons.save
       );
+      expect(
+        readObjectFromDotNotation('global.buttons.actions.delete', lang)
+      ).toBe(lang.global.buttons.actions.delete);
     });
 
     it('should return null when the nested key does not exist', () => {
